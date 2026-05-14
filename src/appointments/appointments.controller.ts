@@ -2,6 +2,7 @@ import { Controller, Post, Body, Get, Patch, Param, Delete } from '@nestjs/commo
 import { AppointmentsService } from './appointments.service';
 import { CreateAppointmentDto } from './dtos/appointments_create.dto.ts/CreateAppointmentDto';
 import { Roles } from 'src/auth/decorators/roles.decorator';
+import { UpdateAppointmentDto } from './dtos/appointments_create.dto.ts/UpdateAppointmentDto';
 
 @Controller('appointments')
 export class AppointmentsController {
@@ -29,8 +30,8 @@ export class AppointmentsController {
     //Actualizar el estado de una cita
     @Patch(':id/status')
     @Roles('doctor')
-    async updateStatus(@Param('id') id: string, @Body() status: string) {
-        return this.appointmentsService.update(id, status);
+    async updateStatus(@Param('id') id: string, @Body() updateAppointmentDto: UpdateAppointmentDto) {
+        return this.appointmentsService.update(id, updateAppointmentDto);
     }
 
     //Eliminar una cita

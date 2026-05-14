@@ -12,7 +12,7 @@ export class AppointmentsEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
+    @Column('uuid')
     id_user: string;
 
     @Column({ type: 'timestamp' })
