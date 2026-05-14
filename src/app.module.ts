@@ -8,6 +8,7 @@ import { UserEntity } from './users/users.entity/users.entity';
 import { RolesEntity } from './roles/roles.entity/roles.entity';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AppointmentsModule } from './appointments/appointments.module';
 
 @Module({
   imports: [
@@ -25,8 +26,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     UsersModule,
     RolesModule,
     AuthModule,
+    AppointmentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
